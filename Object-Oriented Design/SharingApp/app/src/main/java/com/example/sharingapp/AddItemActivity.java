@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -111,13 +111,11 @@ public class AddItemActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int request_code, int result_code, Intent intent) {
-        if (request_code == REQUEST_CODE && result_code == RESULT_OK) {
+    protected void onActivityResult(int request_code, int result_code, Intent intent){
+        if (request_code == REQUEST_CODE && result_code == RESULT_OK){
             Bundle extras = intent.getExtras();
             image = (Bitmap) extras.get("data");
             photo.setImageBitmap(image);
-        } else {
-            super.onActivityResult(request_code, result_code, intent);
         }
     }
 }
